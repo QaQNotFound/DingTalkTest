@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <title>钉钉JSAPI最小测试</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 只引入最关键的JSAPI -->
+    <script src="https://g.alicdn.com/dingding/open-develop/long_live_v2/jsapi/dingtalk.js"></script>
+</head>
+<body style="font-family: sans-serif; text-align: center; padding-top: 50px; margin: 0;">
+    <h1>正在测试 'dd' 对象...</h1>
+    <p id="result" style="font-size: 24px; font-weight: bold;">请稍候...</p>
+
+    <script>
+        // 等待2秒，给JSAPI足够的时间加载和
+        setTimeout(function() {
+            var resultElement = document.getElementById('result');
+            if (window.dd) {
+                // 如果成功找到dd对象
+                resultElement.textContent = "成功: 'dd' 对象已定义!";
+                resultElement.style.color = 'green';
+                console.log('SUCCESS: dd object found!', window.dd);
+            } else {
+                // 如果还是找不到dd对象
+                resultElement.textContent = "失败: 'dd' 对象未定义。";
+                resultElement.style.color = 'red';
+                console.error("FAILURE: 'dd' object was not found in window scope.");
+            }
+        }, 2000);
+    </script>
+</body>
+</html>
